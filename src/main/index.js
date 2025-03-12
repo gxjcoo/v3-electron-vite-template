@@ -2,6 +2,7 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import { SerialPort } from 'serialport'
 
 function createWindow() {
   // Create the browser window.
@@ -51,6 +52,20 @@ app.whenReady().then(() => {
 
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
+  ipcMain.handle('ports', async () => {
+    const ports = await SerialPort.list()
+    console.log(ports, 'ports')
+    const port = new SerialPort({
+      path: 'COM1',
+      dataBits: 8, // 数据位
+      stopBits: 1, // 停止位
+      parity: 'none', // 奇偶校验
+      baudRate: 9600 // 波特率
+    })
+    console.log(port, 'port')
+    return ports
+  })
+  ipcMain.handle('openPort', async () => {})
 
   createWindow()
 

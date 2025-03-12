@@ -1,5 +1,5 @@
 <script setup>
-import Versions from './components/Versions.vue'
+import SerialReaderMifare from './components/SerialReaderMifare.vue'
 
 const ipcHandle = () => window.electron.ipcRenderer.send('ping')
 </script>
@@ -20,5 +20,5 @@ const ipcHandle = () => window.electron.ipcRenderer.send('ping')
       <a target="_blank" rel="noreferrer" @click="ipcHandle">Send IPC</a>
     </div>
   </div>
-  <Versions />
+  <SerialReaderMifare />
 </template>
