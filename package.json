@@ -20,8 +20,11 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^4.0.0",
+    "@element-plus/icons-vue": "^2.3.1",
     "electron-updater": "^6.3.9",
-    "serialport": "^13.0.0"
+    "element-plus": "^2.9.6",
+    "serialport": "^13.0.0",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^2.0.0",
